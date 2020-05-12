@@ -1,0 +1,99 @@
+<div class="base bgcolor-0 round-1 container">
+  <h2>Grupos</h2>
+  <% if (!groupsList.length) { %>
+    <p>No results</p>
+  <% } else { %>
+  <% groupsList.forEach((group) => { %>
+    <div class="group-tile round-1 bgcolor-2 container">
+      <a href=" <%= getGroupPath(group) %>"> <h3 class="fit m05 zoom hover-pointer"><%= group.name %></h3>
+      <div class="row">
+      <a href="<%= editGroupPath(group) %>">
+        <button
+                type="button"
+                className=""
+        >
+          Editar
+        </button>
+      </a>
+
+      <form action="<%= deleteGroupPath(group) %>" method="POST">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="submit" value="Delete" />
+      </form>
+      </div>
+    </div>
+
+  <% }) %>
+  <%}%>
+
+  <div>
+    <a href="/groups/new">
+      <button
+              type="button"
+              className="btn btn-secondary"
+      >
+        Crear
+      </button>
+    </a>
+  </div>
+  
+
+  
+</div>
+
+<div class = "base bgcolor-0 round-1 container">
+    <div>
+      <a href="/publications">
+        <button
+                type="button"
+                className="btn btn-secondary"
+        >
+          Publicaciones
+        </button>
+      </a>
+    </div>
+
+    <div>
+      <a href="/reviews">
+        <button
+                type="button"
+                className="btn btn-secondary"
+        >
+          Reviews
+        </button>
+      </a>
+    </div>
+
+    <div>
+      <a href="/reports">
+        <button
+                type="button"
+                className="btn btn-secondary"
+        >
+          Reports
+        </button>
+      </a>
+    </div>
+
+    <div>
+      <a href="/users">
+        <button
+                type="button"
+                className="btn btn-secondary"
+        >
+          Lista usuarios
+        </button>
+      </a>
+    </div>
+
+    <div>
+      <a href="/search/algo">
+        <button
+                type="button"
+                className="btn btn-secondary"
+        >
+          Simular Busqueda
+        </button>
+      </a>
+    </div>
+  </div>

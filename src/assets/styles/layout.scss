@@ -1,0 +1,147 @@
+@import "navbar";
+
+html, body {
+  background-color: #d9d9df;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family:  sans-serif;
+
+}
+
+.container {
+  margin: 1vw;
+  padding: 1vw;
+}
+
+.m-1 {
+  margin: 1px;
+}
+
+.bgcolor-0 {
+  background-color: #f3f3f3;
+}
+
+.bgcolor-1 {
+  background-color: #e5e5e5;
+}
+
+.bgcolor-2 {
+  background-color: #dcdcdc;
+}
+
+.bgcolor-3{
+  background-color: #14441c;
+}
+
+.round-1 {
+  border-radius: 10px;
+}
+
+.hover-pointer:hover {
+  color: #317fe1;
+  cursor: pointer;
+}
+
+.m05 {
+  margin: 0.5rem;
+}
+
+.zoom {
+  transition: transform .3s;
+}
+
+.zoom:hover {
+  transform: scale(1.15);
+}
+
+.fit {
+  width: fit-content;
+}
+
+.group-tile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+#user-data{
+  flex: 5;
+}
+.profile-row{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+}
+#info{
+  height: 300px;
+  //background-color: #317fe1;
+}
+#user-deals{
+  height: 300px;
+  margin: 2%;
+  //background-color: #14441c;
+}
+#user-groups{
+  margin: 2%;
+  height: 300px;
+  //background-color: #006d6d;
+}
+.profile-pic {
+  margin: 5%;
+  max-width:90%;
+  height:auto;
+  border-radius: 50%;
+}
+#image{
+  flex: 3;
+  //background-color: #006d6d;
+}
+
+#region{
+  margin: 2%;
+  float: left;
+  flex: 5;
+}
+
+#name{
+  margin: 2%;
+}
+
+.rubik-font {
+  font-family: 'Rubik', sans-serif;
+}
+
+#deals{
+  margin: 2%;
+  font-size: 120%;
+}
+#rating{
+  font-size: 120%;
+  margin: 2%;
+}
+
+.stars-pic{
+  margin-top: 4%;
+  max-width:60%;
+  height:auto;
+}
+
+.big-font{
+  font-size: 300%;
+}
+
+body {
+  background-color: #e5e5e5;
+}
+#general{
+  background-color: #f3f3f3;
+  margin: 2%;
+  border-radius: 3%;
+}

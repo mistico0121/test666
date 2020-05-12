@@ -1,0 +1,62 @@
+<div class="base bgcolor-0 round-1 container">
+  <% if (locals.errors) { %>
+    <div class="errors">
+      You need to fix the following errors:
+      <ul>
+        <% errors.forEach(error => { %>
+          <li><%= error.message %></li>
+        <% }); %>
+      </ul>
+    </div>
+  <% } %>
+
+
+  <form action="<%= submitPublicationsPath %>" method="post">
+    <% if (!publications.isNewRecord) { %>
+      <input type="hidden" name="_method" value="patch" />
+    <% } %>
+
+    <% if (currentUser) { %>
+        <input type="hidden" name="userId" value="<%= currentUser.id%>" />
+    <% } else { %>
+
+      <div  class="field">
+        <label for="userId">userId</label>
+        <input type="integer" name="userId" value="<%= publications.userId %>" />
+      </div>
+
+    <% } %>
+
+
+    
+    <div  class="field">
+      <label for="title">Title</label>
+      <input type="text" name="title" value="<%= publications.title %>" />
+    </div>
+
+    <div  class="field">
+      <label for="groupId">groupId</label>
+      <input type="integer" name="groupId" value="<%= publications.groupId %>" />
+    </div>
+
+    <div  class="field">
+      <label for="category">Category</label>
+      <input type="text" name="category" value="<%= publications.category %>" />
+    </div>
+    <div  class="field">
+      <label for="description">Description</label>
+      <textarea type="text" name="description"><%= publications.description %></textarea>
+    </div>
+    <div  class="state">
+      <label for="state">State</label>
+      <textarea type="text" name="state"><%= publications.state %></textarea>
+    </div>
+    <div  class="field">
+      <% if (publications.isNewRecord) { %>
+        <input type="submit" name="create" value="Create" />
+      <% } else { %>
+        <input type="submit" name="update" value="Update" />
+      <% } %>
+    </div>
+  </form>
+</div>

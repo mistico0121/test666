@@ -1,0 +1,14 @@
+<div class="base bgcolor-0 round-1 container">
+    <h2><%= category %></h2>
+    <% if (!categoryList.length) { %>
+        <p>No se encontraron <%= category %></p>
+    <% } else { %>
+        <% categoryList.forEach((category) => { %>
+            <div class="category-tile round-1 bgcolor-2 container">
+                <h3 class="fit m05 zoom hover-pointer"><%= category.name %></h3>
+            </div>
+
+        <% }) %>
+    <%}%>
+
+</div>

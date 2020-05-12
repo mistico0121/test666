@@ -1,0 +1,37 @@
+<div class="base bgcolor-0 round-1 container">
+<h2>Publicaciones</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Item</th>
+        <th>Categoría</th>
+        <th>Description</th>
+        <th>State</th>
+        <th colspan="2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% publicationsList.forEach((publications) => { %>
+        <tr>
+          <td><%= publications.userId %></td>
+          <td><a href="<%=getPublicationsPath(publications)%>"><%= publications.title %></a></td>
+          <td><%= publications.category %></td>
+          <td><%= publications.description %> </td>
+          <td><%= publications.state %> </td>
+          <td><a href="<%= editPublicationsPath(publications) %>">Edit</a></td>
+          <td>
+            <form action="<%= deletePublicationsPath(publications) %>" method="POST">
+              <input type="hidden" name="_method" value="delete" />
+              <input type="submit" value="Delete" />
+            </form>
+          </td>
+        </tr>
+        
+      <% }) %>
+    </tbody>
+  </table>
+
+<a href="<%= newPublicationsPath %>">New Publication</a>
+
+</div>

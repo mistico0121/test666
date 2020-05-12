@@ -1,0 +1,43 @@
+
+<div class = "base bgcolor-0 round-1 container">
+
+
+
+	<h2>GROUP NAME: <%= group.name %></h2>
+
+
+
+	<h4>GROUP INFO:<h4>
+		<ul>
+			<li>group memebers:</li>
+			<li>group photo:</li>
+			<li>group owner: <%= group.userId %></li>
+			<li>group description: <%= group.description %></li>
+			<li>group posts</li>
+		</ul>
+
+
+
+</div>
+
+<div class = "base bgcolor-0 round-1 container">
+	<h2>PUBLICACIONES DEL GRUPO:</h2>
+
+	<% if (!publicationsList.length) { %>
+    	<p>No results</p>
+  	<% } else { %>
+
+
+	<% publicationsList.forEach((publications) => { %>
+	    <div class="group-tile round-1 bgcolor-2 container">
+	      <a href=" <%= getPublicationsPath(publications) %>"> <h3 class="fit m05 zoom hover-pointer"><%= publications.title %> </h3>
+		    
+	    </div>
+
+	  <%})%>
+
+ 	<%}%>
+
+<a href= <%=newPublicationsPath %> >New Publication</a>
+
+</div>

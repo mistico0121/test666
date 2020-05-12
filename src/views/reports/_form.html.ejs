@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<div class="base bgcolor-0 round-1 container">
+	<div>
+	  <% if (locals.errors) { %>
+	    <div class="errors">
+	      You need to fix the following errors:
+	      <ul>
+	        <% errors.forEach(error => { %>
+	          <li><%= error.message %></li>
+	        <% }); %>
+	      </ul>
+	    </div>
+	  <% } %>
+
+
+	  <form action="<%= submitReportsPath %>" method="post">
+	    <% if (!reports.isNewRecord) { %>
+	      <input type="hidden" name="_method" value="patch" />
+	    <% } %>
+
+	   	<% if (currentUser) { %>
+	    	 <input type="hidden" name="userId" value="<%= currentUser.id%>" />
+		<% } %>
+
+	    <div  class="field">
+	      <label for="user_id">User_ID</label>
+	      <input type="number" name="user_id" value="<%= reports.user_id %>" />
+	    </div>
+	    <div  class="field">
+	      <label for="publication_id">Publication ID</label>
+	      <input type="number" name="publication_id" value="<%= reports.category %>" />
+	    </div>
+	    <div  class="field">
+	      <label for="text">Report</label>
+	      <textarea type="text" name="text"><%= reports.description %></textarea>
+	    </div>
+	    
+	    <div  class="field">
+	      <% if (reports.isNewRecord) { %>
+	        <input type="submit" name="create" value="Create" />
+	      <% } else { %>
+	        <input type="submit" name="update" value="Update" />
+	      <% } %>
+	    </div>
+	  </form>
+	</div>
+</div>

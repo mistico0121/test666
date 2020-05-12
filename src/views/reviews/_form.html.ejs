@@ -1,0 +1,41 @@
+<div class="base bgcolor-0 round-1 container">
+
+  <% if (locals.errors) { %>
+    <div class="errors">
+      You need to fix the following errors:
+      <ul>
+        <% errors.forEach(error => { %>
+          <li><%= error.message %></li>
+        <% }); %>
+      </ul>
+    </div>
+  <% } %>
+
+
+  <form action="<%= submitReviewPath %>" method="post">
+    <% if (!review.isNewRecord) { %>
+      <input type="hidden" name="_method" value="patch" />
+    <% } %>
+
+    <% if (currentUser && review.isNewRecord) { %>
+        <input type="hidden" name="user_id" value="currentUser.id" />
+    <% } %>
+
+
+    <div  class="field">
+      <label for="puntaje">Puntaje</label>
+      <input type="number" name="puntaje" value="<%= review.puntaje %>" />
+    </div>
+    <div  class="field">
+      <label for="text">Reseña</label>
+      <input type="text" name="text" value="<%= review.text %>" />
+    </div>
+    <div  class="field">
+      <% if (review.isNewRecord) { %>
+        <input type="submit" name="create" value="Create" />
+      <% } else { %>
+        <input type="submit" name="update" value="Update" />
+      <% } %>
+    </div>
+  </form>
+</div>

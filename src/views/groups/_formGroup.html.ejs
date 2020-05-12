@@ -1,0 +1,42 @@
+<div>
+    <% if (locals.errors) { %>
+        <div>
+            You need to fix the following errors:
+            <ul>
+                <% errors.forEach(error => { %>
+                    <li><%= error.message %></li>
+                <% }); %>
+            </ul>
+        </div>
+    <% } %>
+    <form action="<%= submitGroupPath %>" method="post">
+        <% if (!group.isNewRecord) { %>
+            <input type="hidden" name="_method" value="patch" />
+        <% } %>
+
+        <% if (currentUser) { %>
+             <input type="hidden" name="userId" value="<%= currentUser.id%>" />
+        <% } %>
+
+
+        <div >
+            <label for="name">Nombre de Grupo</label>
+            <input type="text" name="name" value="<%= group.name %>" />
+        </div>
+        <div >
+            <label for="description">Description</label>
+            <textarea type="text" name="description"><%= group.description %></textarea>
+        </div>
+        <div >
+            <label for="image">Imagen</label>
+            <textarea type="text" name="image"><%= group.image %></textarea>
+        </div>
+        <div >
+            <% if (group.isNewRecord) { %>
+                <input type="submit" name="create" value="Create" />
+            <% } else { %>
+                <input type="submit" name="update" value="Update" />
+            <% } %>
+        </div>
+    </form>
+</div>

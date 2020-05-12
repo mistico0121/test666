@@ -1,0 +1,45 @@
+<div class = "base bgcolor-0 round-1 container">
+
+
+  <form action="<%= submitUserPath %>" method="post">
+    <div class="container">
+      <h1>Register</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+
+      <input class="box" type="text" name="username" id="username"
+             placeholder="Username"  required /><br>
+
+      <input class="box" type="text" name="name" id="name"
+             placeholder="Name"  required /><br>
+
+      <input class="box" type="email" name="email" id="email"
+             placeholder="E-Mail " required /><br>
+
+      <input class="box" type="address" name="address" id="address"
+             placeholder="Address " required /><br>
+
+      <input class="box" type="password" name="password"
+             id="password" placeholder="Password " required/><br>
+
+      <input class="box" type="text" name="phone" id="phone"
+             placeholder="Phone Number " required/><br>
+      
+      <div  class="field">
+        <% if (user.isNewRecord) { %>
+          <input type="submit" name="create" value="Create" />
+        <% } else { %>
+          <input type="submit" name="update" value="Update" />
+        <% } %>
+      </div>
+
+
+
+    </div>
+
+    <div class="container signin">
+      <p>Already have an account? <a href="/sessions/sign_in">Sign in</a>.</p>
+    </div>
+  </form>
+
+</div>
