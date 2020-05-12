@@ -28,10 +28,4 @@ router.del('groups.delete', 'groups/:id', loadGroup, async (ctx) => {
 });
 
 
-
-router.post('sign_up', async (ctx) => {
-  console.log("called.")
-  //todo avoid people from being called register. Or just change the route idk
-});
-
 module.exports = router;

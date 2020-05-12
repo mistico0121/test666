@@ -13,6 +13,12 @@
         <% if (!group.isNewRecord) { %>
             <input type="hidden" name="_method" value="patch" />
         <% } %>
+
+        <% if (currentUser) { %>
+             <input type="hidden" name="userId" value="<%= currentUser.id%>" />
+        <% } %>
+
+
         <div >
             <label for="name">Nombre de Grupo</label>
             <input type="text" name="name" value="<%= group.name %>" />

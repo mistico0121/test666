@@ -23,7 +23,7 @@ router.get('group.new', '/new', async (ctx) => {
 router.post('groups.create', '/', async (ctx) => {
   const group = ctx.orm.group.build(ctx.request.body);
   try {
-    await group.save({ fields: ['name', 'image', 'description'] });
+    await group.save({ fields: ['name', 'image', 'description', "userId"] });
     ctx.redirect("/");
   } catch (validationError) {
     await ctx.render('groups.new', {

@@ -70,3 +70,78 @@ html, body {
   display: flex;
   flex-direction: row;
 }
+
+#user-data{
+  flex: 5;
+}
+.profile-row{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+}
+#info{
+  height: 300px;
+  //background-color: #317fe1;
+}
+#user-deals{
+  height: 300px;
+  margin: 2%;
+  //background-color: #14441c;
+}
+#user-groups{
+  margin: 2%;
+  height: 300px;
+  //background-color: #006d6d;
+}
+.profile-pic {
+  margin: 5%;
+  max-width:90%;
+  height:auto;
+  border-radius: 50%;
+}
+#image{
+  flex: 3;
+  //background-color: #006d6d;
+}
+
+#region{
+  margin: 2%;
+  float: left;
+  flex: 5;
+}
+
+#name{
+  margin: 2%;
+}
+
+.rubik-font {
+  font-family: 'Rubik', sans-serif;
+}
+
+#deals{
+  margin: 2%;
+  font-size: 120%;
+}
+#rating{
+  font-size: 120%;
+  margin: 2%;
+}
+
+.stars-pic{
+  margin-top: 4%;
+  max-width:60%;
+  height:auto;
+}
+
+.big-font{
+  font-size: 300%;
+}
+
+body {
+  background-color: #e5e5e5;
+}
+#general{
+  background-color: #f3f3f3;
+  margin: 2%;
+  border-radius: 3%;
+}

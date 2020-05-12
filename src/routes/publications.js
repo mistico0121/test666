@@ -46,7 +46,7 @@ router.post('publications.create', "/", async(ctx) => {
 
 	//SI FALLA
 	try{
-		await publications.save({fields: ["title", "category","description", "state", "groupId"]});
+		await publications.save({fields: ["title", "category","description", "state", "groupId", "userId"]});
 		ctx.redirect(ctx.router.url("publications.list"));
 	} catch(validationError){
 		await ctx.render("publications.new",{

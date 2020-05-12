@@ -16,6 +16,12 @@
     <% if (!review.isNewRecord) { %>
       <input type="hidden" name="_method" value="patch" />
     <% } %>
+
+    <% if (currentUser && review.isNewRecord) { %>
+        <input type="hidden" name="user_id" value="currentUser.id" />
+    <% } %>
+
+
     <div  class="field">
       <label for="puntaje">Puntaje</label>
       <input type="number" name="puntaje" value="<%= review.puntaje %>" />

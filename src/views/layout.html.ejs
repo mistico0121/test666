@@ -7,6 +7,7 @@
     <% if (env !== 'development') { %>
       <link rel="stylesheet" href="<%= assetPath('app.css') %>">
     <% } %>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -16,8 +17,11 @@
       <% } else { %>
         <header>
           <h1>X-Change</h1>
+
         </header>
+
       <% } %>
+
     <%- body %>
     <script src="<%= assetPath('app.js') %>"></script>
   </body>

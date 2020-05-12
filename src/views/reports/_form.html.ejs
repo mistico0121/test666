@@ -18,6 +18,11 @@
 	    <% if (!reports.isNewRecord) { %>
 	      <input type="hidden" name="_method" value="patch" />
 	    <% } %>
+
+	   	<% if (currentUser) { %>
+	    	 <input type="hidden" name="userId" value="<%= currentUser.id%>" />
+		<% } %>
+
 	    <div  class="field">
 	      <label for="user_id">User_ID</label>
 	      <input type="number" name="user_id" value="<%= reports.user_id %>" />

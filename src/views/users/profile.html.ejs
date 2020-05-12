@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>User website</title>
+    <link rel="stylesheet" href="<%= assetPath('profile.css') %>">
 </head>
 <body>
-    Username: <%= username %>
-    <br>
-    Email: <%= email %>
-    <br>
-    Name: <%= userRealName %>
-    <br>
-    Phone: <%= phone %>
-    <br>
-    Address: <%= userAddress%>
+<div id="general" class="rubik-font">
+    <div id="info" class="profile-row">
+        <div id="image">
+            <img class="profile-pic" src="<%=assetPath("profile.png")%>" alt="../../assets/images/profile.png"/>
+        </div>
+        <div id="user-data">
+            <div id="name" class="big-font">
+                <%= userRealName %>
+            </div>
+            <div id="deals">
+                Ventas Realizadas: <%=50%>
+            </div>
+            <div id="rating">
+                Rating: <%=4.8%>
+                <br>
+                <img class="stars-pic" src="<%=assetPath("YellowStars.png")%>" alt="../../assets/images/YellowStars.png"/>
+            </div>
+        </div>
+        <div id="region">
+            <!--<%= userAddress%>-->
+            Santiago, RM.
+        </div>
+    </div>
+    <div id="user-deals" class="flex-container big-font">
+        Ventas del Usuario:
+    </div>
+    <div id="user-groups" class="flex-container big-font"> <!--Esto sale como grupos porque no entendi que era objetos buscados (o si ibamos a poner eso)-->
+        Objetos Buscados:
+    </div>
+</div>
 </body>
 </html>

@@ -1,4 +1,11 @@
-<form action="/sign_in" method="post">
+<% if (locals.notice) { %>
+    <div className="notice"><%= notice %></div>
+  <% } %>
+
+<form action="<%= createSessionPath %>" method="post">
+    
+    <input type="hidden" name="_method" value="put" />
+
     <div class="container">
         <h1>Log In</h1>
 
@@ -11,6 +18,8 @@
 
         <br>
         <input type="submit" id="submitDetails"
-               name="submitDetails" value="Submit" /><br>
+               name="submitDetails" value="Sign in" /><br>
     </div>
 </form>
+
+

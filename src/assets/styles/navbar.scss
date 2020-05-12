@@ -110,6 +110,15 @@ nav {
   white-space: nowrap;
 }
 
+.name{
+  padding-left: 2%;
+  font-family: "Arial";
+  font-style: italic;
+  font-size: 200%;
+  color: white;
+  position: relative;
+}
+
 .item.active {
   display: block;
 }
