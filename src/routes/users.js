@@ -6,6 +6,9 @@ router.get('users', '/', async (ctx) => {
   await ctx.render('users/index');
 });
 
+/*
+//FUERON MOVIDOS A SESSION PARA SEPARAR USUARIO Y SUS VISTAS DE LOGINS Y SESIONES
+
 router.get('register', '/register', async (ctx) => {
   await ctx.render('users/register');
 });
@@ -13,7 +16,7 @@ router.get('register', '/register', async (ctx) => {
 
 router.get('sign_in', '/sign_in', async (ctx) => {
   await ctx.render('users/sign_in');
-});
+});*/
 
 router.get('showUser', '/:username', async (ctx) => {
   const user = await ctx.orm.user.findOne({

@@ -2,20 +2,25 @@ const KoaRouter = require('koa-router');
 
 const router = new KoaRouter();
 
-router.get('search.list', '/:param', async (ctx) => {
+async function loadGroup(ctx, next) {
+  ctx.state.param = ctx.params.param;
+  return next();
+}
+router.post('search.list', '/', async (ctx) => {
+  const searched = ctx.request.body.search;
   const groupsList = await ctx.orm.group.findAll({
     where: {
-      name: ctx.params.param
+      name: searched
     }
   });
   const usersList = await ctx.orm.user.findAll({
     where: {
-      name: ctx.params.param
+      name: searched
     }
   });
   const publicationsList = await ctx.orm.publication.findAll({
     where: {
-      title: ctx.params.param
+      title: searched
     }
   });
 

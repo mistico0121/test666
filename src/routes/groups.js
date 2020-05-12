@@ -57,6 +57,15 @@ router.patch('groups.update', '/:id', loadGroup, async (ctx) => {
   }
 });
 
+
+router.get("groups.upload","/upload", async(ctx) =>{
+  await ctx.render("groups/upload",{
+    submitGroupPath: "/",
+  });
+});
+
+
+
 router.get('groups.show','/:id', loadGroup, async(ctx)=>{
   const { group } = ctx.state;
   
@@ -88,6 +97,7 @@ router.get('groups.show','/:id', loadGroup, async(ctx)=>{
 //   await group.destroy();
 //   ctx.redirect("/");
 // });
+
 
 
 module.exports = router;

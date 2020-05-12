@@ -1,17 +1,35 @@
 'use strict';
 
+const bcrypt = require('bcrypt');
 const faker = require('faker');
-const Sequelize = require('sequelize');
+//const Sequelize = require('sequelize');
 const db = require('../models');
 const Condition = db.Condition;
 
+const PASSWORD_SALT = 10;
+
+
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-        const users = generateFakeUsers(100);
-        return queryInterface.bulkInsert('users', users, {});
+  up: (queryInterface) => {
+
+    const usersData = [
+      {
+        is_admin: false,
+        name: faker.name.findName(),
+        email: faker.internet.email(),
+        password: bcrypt.hashSync('123456789', PASSWORD_SALT),
+        username: faker.internet.userName(),
+        phone: faker.phone.phoneNumber(),
+        address: faker.address.streetAddress(),
+
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ];
+    return queryInterface.bulkInsert('users', usersData);
   },
 
-  down: (queryInterface, Sequelize) => {
+  down: (queryInterface) => queryInterface.bulkDelete('users', null, {}),
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.
@@ -19,10 +37,10 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
-  }
+  
 };
 
-
+/*
 function generateFakeUsers(count) {
   const users = [];
   for (let i = 0; i < count; i++) {
@@ -39,3 +57,4 @@ function generateFakeUsers(count) {
   }
   return users;
 }
+*/
