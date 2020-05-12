@@ -1,11 +1,10 @@
 <div class="base bgcolor-0 round-1 container">
-<h2>Publicaciones</h2>
+<h2>Group</h2>
   <table>
     <thead>
       <tr>
         <th>User</th>
         <th>Item</th>
-        <th>Categoría</th>
         <th>Description</th>
         <th>State</th>
         <th colspan="2">Actions</th>
@@ -14,8 +13,7 @@
     <tbody>
       <% publicationsList.forEach((publications) => { %>
         <tr>
-          <td><%= publications.userId %></td>
-          <td><a href="<%=getPublicationsPath(publications)%>"><%= publications.title %></a></td>
+          <td><%= publications.title %></td>
           <td><%= publications.category %></td>
           <td><%= publications.description %> </td>
           <td><%= publications.state %> </td>
@@ -27,7 +25,6 @@
             </form>
           </td>
         </tr>
-        
       <% }) %>
     </tbody>
   </table>

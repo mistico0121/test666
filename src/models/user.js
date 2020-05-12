@@ -1,16 +1,4 @@
-
-const bcrypt = require('bcrypt');
-
-const PASSWORD_SALT = 10; // COMPLEJIDAD DE LA SALT 2¹⁰
-
-async function buildPasswordHash(instance) {
-  // se cambia aca solo cuando usuario cambia clave
-  if (instance.changed('password')) {
-    const hash = await bcrypt.hash(instance.password, PASSWORD_SALT);
-    instance.set('password', hash);
-  }
-}
-
+'use strict';
 module.exports = (sequelize, DataTypes) => {
   const user = sequelize.define('user', {
     email: DataTypes.STRING,
@@ -18,14 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     password: DataTypes.STRING,
     phone: DataTypes.STRING,
-    address: DataTypes.STRING,
+    address: DataTypes.STRING
   }, {});
-
-  // CLAVE SE ENCRIPTA ANTES DE CREAR O ACTUALIZAR PASSWORD USUARIO
-  user.beforeCreate(buildPasswordHash);
-  user.beforeUpdate(buildPasswordHash);
-
-  user.associate = function (models) {
+  user.associate = function(models) {
     // associations can be defined here
     user.belongsToMany(models.group, { through: 'userGroup' });
     user.hasMany(models.chatMessage);
@@ -34,12 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     user.hasMany(models.review);
     user.hasMany(models.publication);
     user.hasMany(models.item);
-  };
 
-  // METODO DISPONIBLE PARA CADA INSTANCIA DE MODELO
-  user.prototype.checkPassword = function checkPassword(password) {
-    return bcrypt.compare(password, this.password);
   };
-
   return user;
 };

@@ -1,35 +1,21 @@
-
+<!--<div class="container">
+  <div class="flex-logo">
+    <a class="logo" href="#home"><i class="x-logo">X</i><i class="c-logo">C</i><i>hange</i></a>
+  </div>
+  <div class="flex-2">
+    <div class="flex-2-child"></div>
+  </div>
+</div>
+-->
 <nav class="navbar">
     <ul class="menu">
         <li class="logo">
             <a href="/"><i class="x-logo">X</i><i class="c-logo">C</i><i>hange</i></a>
         </li>
-
-        <li class="search_bar">
+        <form class="search_bar" action="search" method="post">
             <input class="search" name="search" type="text" placeholder="Busqueda de grupos, personas, items.">
-        </li>
-
-
-
-
-      <% if (currentUser) { %>
-        <li class= "item name ">Hi <%= currentUser.username %></li>
-
-        <li class = "item button">
-          <form action="<%= destroySessionPath %>" method="post">
-            <input type="hidden" name="_method" value="delete" />
-            <input type="submit" value="Logout" />
-          </form>
-        </li>
-
-      <% } else { %>
-        <li class="item button"><a href="<%= newSessionPath %>">Log In</a></li>
+        </form>
+        <li class="item button"><a href="users/sign_in">Log In</a></li>
         <li class="item button secondary"><a href="/users/register">Sign Up</a></li>
-      <% } %>
-
-
-
-
-
     </ul>
 </nav>
