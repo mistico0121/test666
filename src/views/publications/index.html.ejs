@@ -13,7 +13,7 @@
     <tbody>
       <% publicationsList.forEach((publications) => { %>
         <tr>
-          <td><%= publications.title %></td>
+          <td><a href="<%=getPublicationsPath(publications)%>"><%= publications.title %></a></td>
           <td><%= publications.category %></td>
           <td><%= publications.description %> </td>
           <td><%= publications.state %> </td>
@@ -25,6 +25,7 @@
             </form>
           </td>
         </tr>
+        
       <% }) %>
     </tbody>
   </table>

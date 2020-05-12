@@ -59,9 +59,23 @@ router.patch('groups.update', '/:id', loadGroup, async (ctx) => {
 
 router.get('groups.show','/:id', loadGroup, async(ctx)=>{
   const { group } = ctx.state;
+  
+  const publicationsList = await ctx.orm.publication.findAll({ where: { groupId: group.id } });
+
+
   try {
     const { name, description, image } = ctx.request.body;
-    await ctx.render('groups/show');
+    await ctx.render('groups/show',{
+      publicationsList,
+      getGroupPath: (group) => "groups/".concat(group.id),
+
+      newPublicationsPath: ctx.router.url('publications.new', {groupId : group.id}),
+
+      getPublicationsPath: (publications) => ctx.router.url('publications.show', { id: publications.id }),
+      editPublicationsPath: (publications) => ctx.router.url('publications.edit', { id: publications.id }),
+      deletePublicationsPath: (publications) => ctx.router.url('publications.delete', { id: publications.id }),
+
+    });
   }catch (validationError){
     if (!group) ctx.throw(404, 'invalid group id');
   }
