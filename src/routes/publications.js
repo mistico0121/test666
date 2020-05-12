@@ -17,10 +17,8 @@ router.get('publications.list','/',async(ctx)=>{
 	await ctx.render('publications/index', {
 		publicationsList,
 		newPublicationsPath: ctx.router.url('publications.new'),
-
-    getPublicationsPath: (publications) => ctx.router.url('publications.show', { id: publications.id }),
-  	editPublicationsPath: (publications) => ctx.router.url('publications.edit', { id: publications.id }),
-  	deletePublicationsPath: (publications) => ctx.router.url('publications.delete', { id: publications.id }),
+    	editPublicationsPath: (publications) => ctx.router.url('publications.edit', { id: publications.id }),
+    	deletePublicationsPath: (publications) => ctx.router.url('publications.delete', { id: publications.id }),
 
 	});
 });
@@ -46,7 +44,7 @@ router.post('publications.create', "/", async(ctx) => {
 
 	//SI FALLA
 	try{
-		await publications.save({fields: ["title", "category","description", "state", "groupId"]});
+		await publications.save({fields: ["title", "category","description", "state"]});
 		ctx.redirect(ctx.router.url("publications.list"));
 	} catch(validationError){
 		await ctx.render("publications.new",{
@@ -85,18 +83,7 @@ router.patch('publications.update', '/:id', loadPublications, async (ctx) => {
   }
 });
 
-router.get('publications.show','/:id', loadPublications, async(ctx)=>{
-  const { publications } = ctx.state;
-  try {
-    const { title, category, description , state } = ctx.request.body;
-    await ctx.render('publications/show',{
-      getPublicationsPath: (publications) => "publications/".concat(publications.id),
 
-    });
-  }catch (validationError){
-    if (!publications) ctx.throw(404, 'invalid group id');
-  }
-});
 
 router.del('publications.delete', '/:id', loadPublications, async (ctx) => {
   const { publications } = ctx.state;

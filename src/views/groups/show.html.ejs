@@ -1,5 +1,4 @@
-
-<div class = "base bgcolor-0 round-1 container">
+<div class = "container">
 
 
 
@@ -16,27 +15,5 @@
 		</ul>
 
 
-
-</div>
-
-<div class = "base bgcolor-0 round-1 container">
-	<h2>PUBLICACIONES DEL GRUPO:</h2>
-
-	<% if (!publicationsList.length) { %>
-    	<p>No results</p>
-  	<% } else { %>
-
-
-	<% publicationsList.forEach((publications) => { %>
-	    <div class="group-tile round-1 bgcolor-2 container">
-	      <a href=" <%= getPublicationsPath(publications) %>"> <h3 class="fit m05 zoom hover-pointer"><%= publications.title %> </h3>
-		    
-	    </div>
-
-	  <%})%>
-
- 	<%}%>
-
-<a href= <%=newPublicationsPath %> >New Publication</a>
 
 </div>
