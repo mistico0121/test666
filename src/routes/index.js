@@ -14,6 +14,7 @@ router.get('/', async (ctx) => {
   await ctx.render('index', {
     groupsList,
     appVersion: pkg.version,
+    getGroupPath: (group) => "groups/".concat(group.id),
     editGroupPath: (group) => "groups/".concat(group.id).concat("/edit"),
     deleteGroupPath: (group) => ctx.router.url('groups.delete', { id: group.id })
   });
